@@ -198,7 +198,7 @@ public class IgWebServiceCEP extends JFrame {
 		String cep = consultarTextField.getText();
 		if(validarCEP(cep)) {
 			JSONObject result = WebServiceCEP.consultar(cep);
-			if(result != null) {
+			if(result != null && !result.has("erro")) {
 				preencherCampos(result);
 				consultarTextField.setText("");
 			} else {
